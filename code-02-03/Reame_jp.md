@@ -1,5 +1,5 @@
 # code-02-03
-- 機能：MQTTを使って自宅のエアコンのOn/Offを遠隔で制御する
+- 機能：MQTTを使って遠隔で自宅のエアコンの電源を制御する
 - 使用API:　ECHONET Lite Web API
 - プログラム言語：Node-RED
 - その他：MQTTによる双方向通信
