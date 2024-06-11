@@ -4,4 +4,4 @@
 - プログラム言語：Node-RED
 - その他：MQTTによる双方向通信
 
-![image](https://github.com/foobarbazfred/ProgrammingExamples/blob/main/code-02-01/code-02-03_flow.png)
+![image](https://github.com/foobarbazfred/ProgrammingExamples/blob/main/code-02-03/code-02-03_flow.png)
