@@ -1,0 +1,419 @@
+[
+    {
+        "id": "d51e6d92a1f1bdc4",
+        "type": "tab",
+        "label": "code-02-06-kai",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "76be4a22fd535b6c",
+        "type": "mqtt out",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "",
+        "topic": "set/house_000/shutter/properties",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a34c76b7c53b58a5",
+        "x": 720,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "71034aedae448a0b",
+        "type": "inject",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "シャッタ開操作",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "e69c6c4c324db5c5"
+            ]
+        ]
+    },
+    {
+        "id": "e06586f05b3b724d",
+        "type": "mqtt in",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "",
+        "topic": "set/house_000/shutter/properties",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "a34c76b7c53b58a5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 360,
+        "wires": [
+            [
+                "78df4c6ae752afec"
+            ]
+        ]
+    },
+    {
+        "id": "e69c6c4c324db5c5",
+        "type": "change",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "シャッタ：openControl : open",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"openControl\" : \"open\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [
+                "76be4a22fd535b6c"
+            ]
+        ]
+    },
+    {
+        "id": "bb4f1edbc9ad0734",
+        "type": "comment",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "code-02-06-kai",
+        "info": "",
+        "x": 140,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b027651961f22971",
+        "type": "comment",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "MQTTによるシャッタ遠隔操作 (broker : HIVEMQ)（発話対応版）",
+        "info": "",
+        "x": 500,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "78df4c6ae752afec",
+        "type": "switch",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "openControl",
+        "property": "payload.openControl",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "open",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "close",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 450,
+        "y": 360,
+        "wires": [
+            [
+                "07e51bfa6b7ea99f",
+                "eb86f196e7d70c7f"
+            ],
+            [
+                "c5c465c7808a01e7",
+                "200c4b3df6c2afe2"
+            ],
+            [
+                "ba88e551209bfa25"
+            ]
+        ]
+    },
+    {
+        "id": "07e51bfa6b7ea99f",
+        "type": "change",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "文言：シャッター開",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "シャッターを開きます",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 340,
+        "wires": [
+            [
+                "ad1f9fec4068f232"
+            ]
+        ]
+    },
+    {
+        "id": "ba88e551209bfa25",
+        "type": "change",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "文言：不明",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "属性が不明です",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 420,
+        "wires": [
+            [
+                "ad1f9fec4068f232"
+            ]
+        ]
+    },
+    {
+        "id": "db2dbafe47343cd8",
+        "type": "inject",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "シャッタ閉操作",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 240,
+        "wires": [
+            [
+                "0da37b2081c362a7"
+            ]
+        ]
+    },
+    {
+        "id": "ad1f9fec4068f232",
+        "type": "play audio",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "",
+        "voice": "",
+        "x": 930,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "867e1cb6644f7d63",
+        "type": "comment",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "to speech,  you need to install  contrib-play-audio",
+        "info": "node-red-contrib-play-audio",
+        "x": 440,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "0da37b2081c362a7",
+        "type": "change",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "シャッタ：openControl : close",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"openControl\" : \"close\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 240,
+        "wires": [
+            [
+                "76be4a22fd535b6c"
+            ]
+        ]
+    },
+    {
+        "id": "c5c465c7808a01e7",
+        "type": "change",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "文言：シャッター閉",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "シャッターを閉じます",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 380,
+        "wires": [
+            [
+                "ad1f9fec4068f232"
+            ]
+        ]
+    },
+    {
+        "id": "01ee7f1ccd44ef9b",
+        "type": "http request",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "設定：シャッタ：openControl",
+        "method": "PUT",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.100:8010/elapi/v1/devices/fe012345026301012345000000000000ff/properties/openControl",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 530,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb86f196e7d70c7f",
+        "type": "change",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "シャッタ：openControl:open",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"openControl\" : \"open\" }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 500,
+        "wires": [
+            [
+                "01ee7f1ccd44ef9b"
+            ]
+        ]
+    },
+    {
+        "id": "200c4b3df6c2afe2",
+        "type": "change",
+        "z": "d51e6d92a1f1bdc4",
+        "name": "シャッタ：openControl : close",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"openControl\" : \"close\" }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 540,
+        "wires": [
+            [
+                "01ee7f1ccd44ef9b"
+            ]
+        ]
+    },
+    {
+        "id": "a34c76b7c53b58a5",
+        "type": "mqtt-broker",
+        "name": "MQTT : hivemq",
+        "broker": "broker.hivemq.com",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

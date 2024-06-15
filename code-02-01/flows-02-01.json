@@ -1,0 +1,175 @@
+[
+    {
+        "id": "24ea6a2a918a5399",
+        "type": "tab",
+        "label": "code-02-01",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3c2e4230efbf110c",
+        "type": "inject",
+        "z": "24ea6a2a918a5399",
+        "name": "hello, world!!",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "hello, world!!",
+        "payloadType": "str",
+        "x": 210,
+        "y": 440,
+        "wires": [
+            [
+                "78d63fa3ba5f40ba"
+            ]
+        ]
+    },
+    {
+        "id": "78d63fa3ba5f40ba",
+        "type": "debug",
+        "z": "24ea6a2a918a5399",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "31fa836c02b09ea6",
+        "type": "comment",
+        "z": "24ea6a2a918a5399",
+        "name": "Samples for hello, world",
+        "info": "",
+        "x": 320,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "661c042344425578",
+        "type": "change",
+        "z": "24ea6a2a918a5399",
+        "name": "hello, world!!",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "hello, world!!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 500,
+        "wires": [
+            [
+                "78d63fa3ba5f40ba"
+            ]
+        ]
+    },
+    {
+        "id": "6107991d90d56da3",
+        "type": "inject",
+        "z": "24ea6a2a918a5399",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 500,
+        "wires": [
+            [
+                "661c042344425578"
+            ]
+        ]
+    },
+    {
+        "id": "ca259f6c2e8d08ce",
+        "type": "function",
+        "z": "24ea6a2a918a5399",
+        "name": "msg.payload = 'hello, world!!'",
+        "func": "msg.payload = 'hello, world!!'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 560,
+        "wires": [
+            [
+                "78d63fa3ba5f40ba"
+            ]
+        ]
+    },
+    {
+        "id": "be0dde93f2463f27",
+        "type": "inject",
+        "z": "24ea6a2a918a5399",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 560,
+        "wires": [
+            [
+                "ca259f6c2e8d08ce"
+            ]
+        ]
+    },
+    {
+        "id": "c1c9d0c9a493416a",
+        "type": "comment",
+        "z": "24ea6a2a918a5399",
+        "name": "code-02-01",
+        "info": "",
+        "x": 110,
+        "y": 380,
+        "wires": []
+    }
+]

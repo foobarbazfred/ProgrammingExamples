@@ -1,0 +1,653 @@
+[
+    {
+        "id": "1867aaf5a1abce9e",
+        "type": "tab",
+        "label": "code-02-02",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "308e0a5127d3eb5f",
+        "type": "inject",
+        "z": "1867aaf5a1abce9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "3235e8acb45039ce"
+            ]
+        ]
+    },
+    {
+        "id": "3235e8acb45039ce",
+        "type": "http request",
+        "z": "1867aaf5a1abce9e",
+        "name": "取得：エアコン：operationStatus",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.100:8010/elapi/v1/devices/fe012345013001012345000000000000ff/properties/operationStatus",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 660,
+        "y": 160,
+        "wires": [
+            [
+                "6437ce8febc47770"
+            ]
+        ]
+    },
+    {
+        "id": "6437ce8febc47770",
+        "type": "debug",
+        "z": "1867aaf5a1abce9e",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "20bb68e99eb09adc",
+        "type": "comment",
+        "z": "1867aaf5a1abce9e",
+        "name": "エアコンの電源状態取得",
+        "info": "",
+        "x": 130,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "457d7738af6e7c15",
+        "type": "inject",
+        "z": "1867aaf5a1abce9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 220,
+        "wires": [
+            [
+                "cc784aac95ab3f97"
+            ]
+        ]
+    },
+    {
+        "id": "cc784aac95ab3f97",
+        "type": "http request",
+        "z": "1867aaf5a1abce9e",
+        "name": "取得：電気錠：lockStatus",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.100:8010/elapi/v1/devices/fe012345026f01012345000000000000ff/properties/lockStatus",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 630,
+        "y": 220,
+        "wires": [
+            [
+                "6437ce8febc47770"
+            ]
+        ]
+    },
+    {
+        "id": "88f845693da09e06",
+        "type": "comment",
+        "z": "1867aaf5a1abce9e",
+        "name": "電気錠の施錠状態取得",
+        "info": "",
+        "x": 120,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "9fdd6028135868e4",
+        "type": "inject",
+        "z": "1867aaf5a1abce9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 280,
+        "wires": [
+            [
+                "453f52d9b0ed5d73"
+            ]
+        ]
+    },
+    {
+        "id": "453f52d9b0ed5d73",
+        "type": "http request",
+        "z": "1867aaf5a1abce9e",
+        "name": "取得：シャッター：openClosedStatus",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.100:8010/elapi/v1/devices/fe012345026301012345000000000000ff/properties/openClosedStatus",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 670,
+        "y": 280,
+        "wires": [
+            [
+                "6437ce8febc47770"
+            ]
+        ]
+    },
+    {
+        "id": "a62655010104b5fe",
+        "type": "comment",
+        "z": "1867aaf5a1abce9e",
+        "name": "シャッターの開閉状態取得",
+        "info": "",
+        "x": 130,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f316979d6c635460",
+        "type": "comment",
+        "z": "1867aaf5a1abce9e",
+        "name": "Samples for ECHONET  Lite Web API",
+        "info": "",
+        "x": 350,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "957502e188a9ac3e",
+        "type": "comment",
+        "z": "1867aaf5a1abce9e",
+        "name": "code-02-02",
+        "info": "",
+        "x": 90,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9570cb6305da4b3d",
+        "type": "inject",
+        "z": "1867aaf5a1abce9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 380,
+        "wires": [
+            [
+                "5e025ce1c2a87f8e"
+            ]
+        ]
+    },
+    {
+        "id": "7a83cdd0adc21583",
+        "type": "http request",
+        "z": "1867aaf5a1abce9e",
+        "name": "設定：エアコン：operationStatus",
+        "method": "PUT",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.100:8010/elapi/v1/devices/fe012345013001012345000000000000ff/properties/operationStatus",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1000,
+        "y": 380,
+        "wires": [
+            [
+                "91f1bf68495c942a"
+            ]
+        ]
+    },
+    {
+        "id": "91f1bf68495c942a",
+        "type": "debug",
+        "z": "1867aaf5a1abce9e",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1240,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "c042dafdd797079c",
+        "type": "comment",
+        "z": "1867aaf5a1abce9e",
+        "name": "エアコンの電源On/Off操作",
+        "info": "",
+        "x": 130,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "c8a2f4b7e51d20b7",
+        "type": "inject",
+        "z": "1867aaf5a1abce9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 480,
+        "wires": [
+            [
+                "5222e6e607f036cd"
+            ]
+        ]
+    },
+    {
+        "id": "6058feaf76785228",
+        "type": "http request",
+        "z": "1867aaf5a1abce9e",
+        "name": "設定：電気錠：lockStatus",
+        "method": "PUT",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.100:8010/elapi/v1/devices/fe012345026f01012345000000000000ff/properties/lockStatus",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 970,
+        "y": 480,
+        "wires": [
+            [
+                "91f1bf68495c942a"
+            ]
+        ]
+    },
+    {
+        "id": "91e7aafe9ed24826",
+        "type": "comment",
+        "z": "1867aaf5a1abce9e",
+        "name": "電気錠の施錠/解錠操作",
+        "info": "",
+        "x": 120,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "dfa7927fcadf0efe",
+        "type": "inject",
+        "z": "1867aaf5a1abce9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 580,
+        "wires": [
+            [
+                "6738bf56a5304cf6"
+            ]
+        ]
+    },
+    {
+        "id": "730489659096b2c2",
+        "type": "http request",
+        "z": "1867aaf5a1abce9e",
+        "name": "設定：シャッター：openControl",
+        "method": "PUT",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.100:8010/elapi/v1/devices/fe012345026301012345000000000000ff/properties/openControl",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 990,
+        "y": 580,
+        "wires": [
+            [
+                "91f1bf68495c942a"
+            ]
+        ]
+    },
+    {
+        "id": "cecb12789f7a6b69",
+        "type": "comment",
+        "z": "1867aaf5a1abce9e",
+        "name": "シャッタの開閉操作",
+        "info": "",
+        "x": 110,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "5e025ce1c2a87f8e",
+        "type": "change",
+        "z": "1867aaf5a1abce9e",
+        "name": "エアコン：operationStatus : true",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"operationStatus\" : true }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 380,
+        "wires": [
+            [
+                "7a83cdd0adc21583"
+            ]
+        ]
+    },
+    {
+        "id": "5222e6e607f036cd",
+        "type": "change",
+        "z": "1867aaf5a1abce9e",
+        "name": "電気錠：lockStatus:lock",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"lockStatus\" : \"lock\" }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 480,
+        "wires": [
+            [
+                "6058feaf76785228"
+            ]
+        ]
+    },
+    {
+        "id": "6738bf56a5304cf6",
+        "type": "change",
+        "z": "1867aaf5a1abce9e",
+        "name": "シャッタ：openControl:open",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"openControl\" : \"open\" }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 580,
+        "wires": [
+            [
+                "730489659096b2c2"
+            ]
+        ]
+    },
+    {
+        "id": "f4a007d03812fc5f",
+        "type": "inject",
+        "z": "1867aaf5a1abce9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 620,
+        "wires": [
+            [
+                "da89309f31f48c0d"
+            ]
+        ]
+    },
+    {
+        "id": "da89309f31f48c0d",
+        "type": "change",
+        "z": "1867aaf5a1abce9e",
+        "name": "シャッタ：openControl : close",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"openControl\" : \"close\" }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 620,
+        "wires": [
+            [
+                "730489659096b2c2"
+            ]
+        ]
+    },
+    {
+        "id": "729d28f3074428eb",
+        "type": "change",
+        "z": "1867aaf5a1abce9e",
+        "name": "エアコン：operationStatus : false",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"operationStatus\" : false }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 420,
+        "wires": [
+            [
+                "7a83cdd0adc21583"
+            ]
+        ]
+    },
+    {
+        "id": "a1f6a0be74dcd348",
+        "type": "change",
+        "z": "1867aaf5a1abce9e",
+        "name": "電気錠：lockStatus : false",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"lockStatus\" : \"unlock\" }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 520,
+        "wires": [
+            [
+                "6058feaf76785228"
+            ]
+        ]
+    },
+    {
+        "id": "e04bf3e7e28af7f8",
+        "type": "inject",
+        "z": "1867aaf5a1abce9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 520,
+        "wires": [
+            [
+                "a1f6a0be74dcd348"
+            ]
+        ]
+    },
+    {
+        "id": "d20a16df15cc2862",
+        "type": "inject",
+        "z": "1867aaf5a1abce9e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 420,
+        "wires": [
+            [
+                "729d28f3074428eb"
+            ]
+        ]
+    }
+]

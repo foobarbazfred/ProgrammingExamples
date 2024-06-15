@@ -1,0 +1,313 @@
+[
+    {
+        "id": "3d9999d2d8861714",
+        "type": "tab",
+        "label": "code-02-03",
+        "disabled": false,
+        "info": " 1. ECHONET  Web API を用いて電気錠の施錠状態を確認\r\n 1. 解錠されたら、シャッターを開く\r\n ",
+        "env": []
+    },
+    {
+        "id": "1c2a80fc8284ca8b",
+        "type": "inject",
+        "z": "3d9999d2d8861714",
+        "name": "実行開始",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "5",
+        "topic": "",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "004298159f5603fb"
+            ]
+        ]
+    },
+    {
+        "id": "b6679055b3a2bffd",
+        "type": "debug",
+        "z": "3d9999d2d8861714",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "004298159f5603fb",
+        "type": "http request",
+        "z": "3d9999d2d8861714",
+        "name": "取得：電気錠：lockStatus",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.100:8010/elapi/v1/devices/fe012345026f01012345000000000000ff/properties/lockStatus",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 250,
+        "y": 260,
+        "wires": [
+            [
+                "8410b428704f2623"
+            ]
+        ]
+    },
+    {
+        "id": "8410b428704f2623",
+        "type": "switch",
+        "z": "3d9999d2d8861714",
+        "name": "判断：電気錠：lockStatus",
+        "property": "payload.lockStatus",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "lock",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "unlock",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 530,
+        "y": 260,
+        "wires": [
+            [
+                "38146498fef72ce9",
+                "00e2f4dc9e8c31d5"
+            ],
+            [
+                "36093153a260c5f4",
+                "16e861d0cd9525b0"
+            ],
+            [
+                "573e47e09206033b"
+            ]
+        ]
+    },
+    {
+        "id": "38146498fef72ce9",
+        "type": "change",
+        "z": "3d9999d2d8861714",
+        "name": "文言：しまっています",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "しまっています",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 240,
+        "wires": [
+            [
+                "b6679055b3a2bffd"
+            ]
+        ]
+    },
+    {
+        "id": "36093153a260c5f4",
+        "type": "change",
+        "z": "3d9999d2d8861714",
+        "name": "文言：しまっていません",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "閉まっていません",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 300,
+        "wires": [
+            [
+                "b6679055b3a2bffd"
+            ]
+        ]
+    },
+    {
+        "id": "573e47e09206033b",
+        "type": "change",
+        "z": "3d9999d2d8861714",
+        "name": "文言：状態が取得できません",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "状態が取得できません",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 360,
+        "wires": [
+            [
+                "b6679055b3a2bffd"
+            ]
+        ]
+    },
+    {
+        "id": "00e2f4dc9e8c31d5",
+        "type": "delay",
+        "z": "3d9999d2d8861714",
+        "name": "遅延：5秒",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 400,
+        "wires": [
+            [
+                "004298159f5603fb"
+            ]
+        ]
+    },
+    {
+        "id": "16e861d0cd9525b0",
+        "type": "change",
+        "z": "3d9999d2d8861714",
+        "name": "文言：おかえりなさい",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "おかえりなさい",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 240,
+        "y": 460,
+        "wires": [
+            [
+                "5e1f7a1daa478f3b",
+                "b6679055b3a2bffd"
+            ]
+        ]
+    },
+    {
+        "id": "5e1f7a1daa478f3b",
+        "type": "change",
+        "z": "3d9999d2d8861714",
+        "name": "シャッタ：openControl:open",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"openControl\" : \"open\" }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 560,
+        "wires": [
+            [
+                "90b71484227b76df"
+            ]
+        ]
+    },
+    {
+        "id": "90b71484227b76df",
+        "type": "http request",
+        "z": "3d9999d2d8861714",
+        "name": "設定：シャッター：openControl",
+        "method": "PUT",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.100:8010/elapi/v1/devices/fe012345026301012345000000000000ff/properties/openControl",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 590,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "46384d19aed9a197",
+        "type": "comment",
+        "z": "3d9999d2d8861714",
+        "name": "code-02-03",
+        "info": "",
+        "x": 150,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "14a9b82459f7cd39",
+        "type": "comment",
+        "z": "3d9999d2d8861714",
+        "name": "電気錠の解錠に連動してシャッターを開く",
+        "info": "",
+        "x": 440,
+        "y": 80,
+        "wires": []
+    }
+]

@@ -1,0 +1,585 @@
+[
+    {
+        "id": "cdee6e22bc4deaaa",
+        "type": "tab",
+        "label": "code-02-04",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c0956effd64f8a3b",
+        "type": "inject",
+        "z": "cdee6e22bc4deaaa",
+        "name": "実行開始",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "5",
+        "topic": "",
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "a76ea03ff5926a22"
+            ]
+        ]
+    },
+    {
+        "id": "7cfa012bced3884b",
+        "type": "debug",
+        "z": "cdee6e22bc4deaaa",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "a76ea03ff5926a22",
+        "type": "http request",
+        "z": "cdee6e22bc4deaaa",
+        "name": "取得：電気錠：lockStatus",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.100:8010/elapi/v1/devices/fe012345026f01012345000000000000ff/properties/lockStatus",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 270,
+        "y": 260,
+        "wires": [
+            [
+                "83b4fcb79022eda2"
+            ]
+        ]
+    },
+    {
+        "id": "83b4fcb79022eda2",
+        "type": "switch",
+        "z": "cdee6e22bc4deaaa",
+        "name": "判断：電気錠：lockStatus",
+        "property": "payload.lockStatus",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "lock",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "unlock",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 550,
+        "y": 260,
+        "wires": [
+            [
+                "2f374e7705255243",
+                "68c6c0381955ce56"
+            ],
+            [
+                "95978286743b8b79",
+                "c5c85bee2588f169"
+            ],
+            [
+                "3157c7f186824fc3"
+            ]
+        ]
+    },
+    {
+        "id": "2f374e7705255243",
+        "type": "change",
+        "z": "cdee6e22bc4deaaa",
+        "name": "文言：しまっています",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "しまっています",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 240,
+        "wires": [
+            [
+                "7cfa012bced3884b"
+            ]
+        ]
+    },
+    {
+        "id": "95978286743b8b79",
+        "type": "change",
+        "z": "cdee6e22bc4deaaa",
+        "name": "文言：しまっていません",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "閉まっていません",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 830,
+        "y": 300,
+        "wires": [
+            [
+                "7cfa012bced3884b"
+            ]
+        ]
+    },
+    {
+        "id": "3157c7f186824fc3",
+        "type": "change",
+        "z": "cdee6e22bc4deaaa",
+        "name": "文言：状態が取得できません",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "状態が取得できません",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 360,
+        "wires": [
+            [
+                "7cfa012bced3884b"
+            ]
+        ]
+    },
+    {
+        "id": "68c6c0381955ce56",
+        "type": "delay",
+        "z": "cdee6e22bc4deaaa",
+        "name": "遅延：5秒",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 410,
+        "y": 400,
+        "wires": [
+            [
+                "a76ea03ff5926a22"
+            ]
+        ]
+    },
+    {
+        "id": "c5c85bee2588f169",
+        "type": "change",
+        "z": "cdee6e22bc4deaaa",
+        "name": "文言：おかえりなさい",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "おかえりなさい",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 460,
+        "wires": [
+            [
+                "1e3cef6f72574959",
+                "7cfa012bced3884b"
+            ]
+        ]
+    },
+    {
+        "id": "1e3cef6f72574959",
+        "type": "change",
+        "z": "cdee6e22bc4deaaa",
+        "name": "シャッタ：openControl:open",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"openControl\" : \"open\" }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 560,
+        "wires": [
+            [
+                "e235b641d0fa0714"
+            ]
+        ]
+    },
+    {
+        "id": "e235b641d0fa0714",
+        "type": "http request",
+        "z": "cdee6e22bc4deaaa",
+        "name": "設定：シャッター：openControl",
+        "method": "PUT",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.100:8010/elapi/v1/devices/fe012345026301012345000000000000ff/properties/openControl",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 630,
+        "y": 560,
+        "wires": [
+            [
+                "9126d19155e13a0b"
+            ]
+        ]
+    },
+    {
+        "id": "cdab460253544b5f",
+        "type": "comment",
+        "z": "cdee6e22bc4deaaa",
+        "name": "code-02-04",
+        "info": "",
+        "x": 170,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "f20c26c6b9f74dbc",
+        "type": "comment",
+        "z": "cdee6e22bc4deaaa",
+        "name": "電気錠の解錠に連動してシャッターを開く、電気錠閉め忘れに対応",
+        "info": "",
+        "x": 540,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d452cd507c8f9f53",
+        "type": "http request",
+        "z": "cdee6e22bc4deaaa",
+        "name": "設定：エアコン：operationStatus",
+        "method": "PUT",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.100:8010/elapi/v1/devices/fe012345013001012345000000000000ff/properties/operationStatus",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 640,
+        "y": 620,
+        "wires": [
+            [
+                "6366642cb7efa6f9"
+            ]
+        ]
+    },
+    {
+        "id": "9126d19155e13a0b",
+        "type": "change",
+        "z": "cdee6e22bc4deaaa",
+        "name": "エアコン：operationStatus : true",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"operationStatus\" : true }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 620,
+        "wires": [
+            [
+                "d452cd507c8f9f53"
+            ]
+        ]
+    },
+    {
+        "id": "6366642cb7efa6f9",
+        "type": "delay",
+        "z": "cdee6e22bc4deaaa",
+        "name": "遅延：１０秒",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 240,
+        "y": 680,
+        "wires": [
+            [
+                "4d10b26a5dd9a719"
+            ]
+        ]
+    },
+    {
+        "id": "4d10b26a5dd9a719",
+        "type": "http request",
+        "z": "cdee6e22bc4deaaa",
+        "name": "取得：電気錠：lockStatus",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.100:8010/elapi/v1/devices/fe012345026f01012345000000000000ff/properties/lockStatus",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 270,
+        "y": 760,
+        "wires": [
+            [
+                "fa4c2daca2734322"
+            ]
+        ]
+    },
+    {
+        "id": "fa4c2daca2734322",
+        "type": "switch",
+        "z": "cdee6e22bc4deaaa",
+        "name": "判断：電気錠：lockStatus",
+        "property": "payload.lockStatus",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "lock",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "unlock",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 550,
+        "y": 760,
+        "wires": [
+            [
+                "7aedc6e946661e61"
+            ],
+            [
+                "e85e7c22ce9e61e0",
+                "cca8e34a936bbc43"
+            ],
+            [
+                "b01939339b7494c4"
+            ]
+        ]
+    },
+    {
+        "id": "7aedc6e946661e61",
+        "type": "change",
+        "z": "cdee6e22bc4deaaa",
+        "name": "文言：しまっています",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "しまっています",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 720,
+        "wires": [
+            [
+                "7cfa012bced3884b"
+            ]
+        ]
+    },
+    {
+        "id": "e85e7c22ce9e61e0",
+        "type": "change",
+        "z": "cdee6e22bc4deaaa",
+        "name": "文言：しまっていません",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "閉まっていません",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 830,
+        "y": 780,
+        "wires": [
+            [
+                "7cfa012bced3884b"
+            ]
+        ]
+    },
+    {
+        "id": "b01939339b7494c4",
+        "type": "change",
+        "z": "cdee6e22bc4deaaa",
+        "name": "文言：状態が取得できません",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "状態が取得できません",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 840,
+        "wires": [
+            [
+                "7cfa012bced3884b"
+            ]
+        ]
+    },
+    {
+        "id": "cca8e34a936bbc43",
+        "type": "change",
+        "z": "cdee6e22bc4deaaa",
+        "name": "電気錠：lockStatus:lock",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"lockStatus\" : \"lock\" }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 270,
+        "y": 900,
+        "wires": [
+            [
+                "4b1a96cfc77481fa"
+            ]
+        ]
+    },
+    {
+        "id": "4b1a96cfc77481fa",
+        "type": "http request",
+        "z": "cdee6e22bc4deaaa",
+        "name": "設定：電気錠：lockStatus",
+        "method": "PUT",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.100:8010/elapi/v1/devices/fe012345026f01012345000000000000ff/properties/lockStatus",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 550,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    }
+]

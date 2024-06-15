@@ -1,7 +1,6 @@
-# code-02-04
-- 機能：MQTTを使って遠隔で自宅のシャッタを開閉する
+# code-02-02
+- 機能：電気錠が解錠されるとシャッターが開き、エアコンの電源が入る。一定時間経過後、玄関の鍵を確認、施錠する
 - 使用API:　ECHONET Lite Web API
 - プログラム言語：Node-RED
-- その他：MQTTによる双方向通信
 
-![image](https://github.com/foobarbazfred/ProgrammingExamples/blob/main/code-02-04/code-02-04_flow.png)
+![image](https://github.com/foobarbazfred/ProgrammingExamples/blob/main/code-02-02/code-02-02_flow.png)
