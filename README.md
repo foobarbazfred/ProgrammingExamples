@@ -11,6 +11,6 @@ Sample codes for programming exercises using SmartHomeSimulator. These codes are
 - code-02-04
   - Home automation program that links electronic locks and shutters (and automatic locking)
 - code-02-05
-  - Remotely control an air-conditionar via MQTT
+  - Remotely control air-conditionars via MQTT
 - code-02-06
-  - Remotely control a shutters via MQTT
+  - Remotely control shutters via MQTT
