@@ -1,6 +1,6 @@
 # ProgrammingExamples
 
-Sample codes for programming exercises using SmartHomeSimulator. These codes are made with Node-RED.
+Sample codes for programming exercises using SmartHomeSimulator. These codes are written in Node-RED.
 
 - code-02-01
   - sample code (Hello world!)
