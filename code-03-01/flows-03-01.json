@@ -1,0 +1,533 @@
+[
+    {
+        "id": "28daf1dfcd57e913",
+        "type": "tab",
+        "label": "code-03-01",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "351fa44f032b27cf",
+        "type": "rpi-gpio in",
+        "z": "28daf1dfcd57e913",
+        "name": "Button SW (red)",
+        "pin": "5",
+        "intype": "up",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 180,
+        "y": 520,
+        "wires": [
+            [
+                "fccde4a2c32f7a36"
+            ]
+        ]
+    },
+    {
+        "id": "fccde4a2c32f7a36",
+        "type": "debug",
+        "z": "28daf1dfcd57e913",
+        "name": "SW is pressed",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "f1f0a93ef0b4acc3",
+        "type": "comment",
+        "z": "28daf1dfcd57e913",
+        "name": "to control GPIO, you need to install  node-red-node-pi-gpio",
+        "info": "",
+        "x": 490,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "0f642dc7cc4fa182",
+        "type": "inject",
+        "z": "28daf1dfcd57e913",
+        "name": "Turn On LED",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "f9644671a441e467"
+            ]
+        ]
+    },
+    {
+        "id": "f9644671a441e467",
+        "type": "rpi-gpio out",
+        "z": "28daf1dfcd57e913",
+        "name": "LED ( red )",
+        "pin": "18",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 410,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "519c18a311b769b6",
+        "type": "inject",
+        "z": "28daf1dfcd57e913",
+        "name": "Turn Off LED",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "f9644671a441e467"
+            ]
+        ]
+    },
+    {
+        "id": "227b88993ecf93d1",
+        "type": "inject",
+        "z": "28daf1dfcd57e913",
+        "name": "Turn On LED",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "e5467a39cd4cc0be"
+            ]
+        ]
+    },
+    {
+        "id": "e5467a39cd4cc0be",
+        "type": "rpi-gpio out",
+        "z": "28daf1dfcd57e913",
+        "name": "LED (green)",
+        "pin": "17",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 410,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "c7492699c1d686fc",
+        "type": "inject",
+        "z": "28daf1dfcd57e913",
+        "name": "Turn Off LED",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "e5467a39cd4cc0be"
+            ]
+        ]
+    },
+    {
+        "id": "6fcd862f0162f738",
+        "type": "inject",
+        "z": "28daf1dfcd57e913",
+        "name": "Turn On LED",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 170,
+        "y": 360,
+        "wires": [
+            [
+                "229b3c1e14d632c9"
+            ]
+        ]
+    },
+    {
+        "id": "229b3c1e14d632c9",
+        "type": "rpi-gpio out",
+        "z": "28daf1dfcd57e913",
+        "name": "LED (blue)",
+        "pin": "22",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 410,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "e603d2b77b6275e2",
+        "type": "inject",
+        "z": "28daf1dfcd57e913",
+        "name": "Turn Off LED",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 170,
+        "y": 400,
+        "wires": [
+            [
+                "229b3c1e14d632c9"
+            ]
+        ]
+    },
+    {
+        "id": "5bb79c98d94c1926",
+        "type": "rpi-gpio in",
+        "z": "28daf1dfcd57e913",
+        "name": "Button SW (black)",
+        "pin": "6",
+        "intype": "up",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 190,
+        "y": 560,
+        "wires": [
+            [
+                "fccde4a2c32f7a36"
+            ]
+        ]
+    },
+    {
+        "id": "0e44c9744ab3755c",
+        "type": "rpi-gpio in",
+        "z": "28daf1dfcd57e913",
+        "name": "Button SW (red)",
+        "pin": "5",
+        "intype": "up",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 180,
+        "y": 680,
+        "wires": [
+            [
+                "00fb1ad7a0c0d40a"
+            ]
+        ]
+    },
+    {
+        "id": "5f8778239843b387",
+        "type": "rpi-gpio out",
+        "z": "28daf1dfcd57e913",
+        "name": "LED ( red )",
+        "pin": "18",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 570,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "00fb1ad7a0c0d40a",
+        "type": "function",
+        "z": "28daf1dfcd57e913",
+        "name": "invert L/H",
+        "func": "msg.payload = msg.payload == 1 ? 0 : 1;   // invert 0/1\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 680,
+        "wires": [
+            [
+                "5f8778239843b387"
+            ]
+        ]
+    },
+    {
+        "id": "94ad4948b16a8204",
+        "type": "switch",
+        "z": "28daf1dfcd57e913",
+        "name": "check pressed  or not",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 420,
+        "y": 760,
+        "wires": [
+            [
+                "d792a00cb473add4"
+            ],
+            [
+                "4010cbd45ac69123"
+            ]
+        ]
+    },
+    {
+        "id": "d792a00cb473add4",
+        "type": "change",
+        "z": "28daf1dfcd57e913",
+        "name": "msg.payload = 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 740,
+        "wires": [
+            [
+                "0ff888dfe876a89a"
+            ]
+        ]
+    },
+    {
+        "id": "4010cbd45ac69123",
+        "type": "change",
+        "z": "28daf1dfcd57e913",
+        "name": "msg.payload = 0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 780,
+        "wires": [
+            [
+                "0ff888dfe876a89a"
+            ]
+        ]
+    },
+    {
+        "id": "21da43e901660f73",
+        "type": "rpi-gpio in",
+        "z": "28daf1dfcd57e913",
+        "name": "Button SW (black)",
+        "pin": "6",
+        "intype": "up",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 190,
+        "y": 760,
+        "wires": [
+            [
+                "94ad4948b16a8204"
+            ]
+        ]
+    },
+    {
+        "id": "0ff888dfe876a89a",
+        "type": "rpi-gpio out",
+        "z": "28daf1dfcd57e913",
+        "name": "LED (green)",
+        "pin": "17",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 830,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "231d071ae7df1034",
+        "type": "comment",
+        "z": "28daf1dfcd57e913",
+        "name": "code-03-01",
+        "info": "",
+        "x": 130,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "1dc9226dec42b783",
+        "type": "comment",
+        "z": "28daf1dfcd57e913",
+        "name": "samples for  GPIO control by Node-RED",
+        "info": "",
+        "x": 430,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "7a2b602309bef188",
+        "type": "comment",
+        "z": "28daf1dfcd57e913",
+        "name": "turn on/off  LED by perss SW",
+        "info": "",
+        "x": 180,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "4e99435094690e30",
+        "type": "comment",
+        "z": "28daf1dfcd57e913",
+        "name": "turn on/off  LED",
+        "info": "",
+        "x": 140,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "499e75b9c9685d53",
+        "type": "comment",
+        "z": "28daf1dfcd57e913",
+        "name": "SW is pressed or released",
+        "info": "",
+        "x": 170,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "82fa264421ba0cce",
+        "type": "rpi-gpio in",
+        "z": "28daf1dfcd57e913",
+        "name": "IR Sensor",
+        "pin": "27",
+        "intype": "down",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 660,
+        "y": 520,
+        "wires": [
+            [
+                "133164e158f3c351"
+            ]
+        ]
+    },
+    {
+        "id": "133164e158f3c351",
+        "type": "debug",
+        "z": "28daf1dfcd57e913",
+        "name": "detected by  IR Sensor",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "8e04a1f15d92eb61",
+        "type": "comment",
+        "z": "28daf1dfcd57e913",
+        "name": "check IR Sensor",
+        "info": "",
+        "x": 640,
+        "y": 480,
+        "wires": []
+    }
+]
