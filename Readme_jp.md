@@ -1,6 +1,6 @@
 # サンプルプログラム
 
-SmartHomeSimulatorを使ってプログラミング演習を行うためのサンプルコードを紹介します。以下はNode-REDを使ったプログラムの例です。
+SmartHomeSimulatorを使ってプログラミング演習を行うためのサンプルコードを紹介します。以下はNode-REDを使ったプログラムの例です。動作確認はRaspberryPi + Node.js + Node-REDの環境で行っていますが、WindowsPC上でもNode.js, Node-REDをインストールすれば同様に動作可能と思います。
 
 - code-02-01
   - Node-REDによるシンプルなサンプルコード (Hello world!)
