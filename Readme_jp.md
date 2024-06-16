@@ -1,6 +1,6 @@
 # サンプルプログラム
 
-SmartHomeSimulatorを使ってプログラミング演習を行うためのサンプルコードを紹介します。Node-REDによるプログラミングの例です。
+SmartHomeSimulatorを使ってプログラミング演習を行うためのサンプルコードを紹介します。以下はNode-REDを使ったプログラムの例です。
 
 - code-02-01
   - Node-REDによるシンプルなサンプルコード (Hello world!)
@@ -16,3 +16,5 @@ SmartHomeSimulatorを使ってプログラミング演習を行うためのサ�
   - MQTTを使って遠隔から自宅のシャッタを制御する
 - code-03-01
   - Node-RED からRaspberry PiのGPIOを制御するサンプルコード
+
+上記はNode-REDによるサンプルですが、Pythonを使ってSmartHomeSimulatorを制御することもできます。
