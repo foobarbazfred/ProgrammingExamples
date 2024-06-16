@@ -16,5 +16,6 @@ SmartHomeSimulatorを使ってプログラミング演習を行うためのサ�
   - MQTTを使って遠隔から自宅のシャッタを制御する
 - code-03-01
   - Node-RED からRaspberry PiのGPIOを制御するサンプルコード
+  - 注：プログラム実行にはRPi用の拡張基板が必要です
 
 上記はNode-REDによるサンプルですが、Pythonを使ってSmartHomeSimulatorを制御することもできます。
