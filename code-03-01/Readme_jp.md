@@ -1,6 +1,6 @@
 # code-03-01
-- 機能：Node-RED からRaspberry PiのGPIOを制御するサンプルコード (Hello world)
-  - LEDを点灯させる
+- 機能：Node-RED からRaspberry PiのGPIOを制御するサンプルコード
+  - LEDを点灯させる　（通称Lチカ）
   - SWの押下を取得する
   - IRセンサの値を取得する
   - SWを押下するとLEDが点灯する
