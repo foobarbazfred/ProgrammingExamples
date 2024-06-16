@@ -14,3 +14,5 @@ SmartHomeSimulatorを使ってプログラミング演習を行うためのサ�
   - MQTTを使って遠隔から自宅のエアコンを制御する
 - code-02-06
   - MQTTを使って遠隔から自宅のシャッタを制御する
+- code-03-01
+  - Node-RED からRaspberry PiのGPIOを制御するサンプルコード
