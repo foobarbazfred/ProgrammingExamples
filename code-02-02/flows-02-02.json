@@ -11,7 +11,7 @@
         "id": "308e0a5127d3eb5f",
         "type": "inject",
         "z": "1867aaf5a1abce9e",
-        "name": "",
+        "name": "エアコンの電源状態取得",
         "props": [
             {
                 "p": "payload"
@@ -24,7 +24,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 380,
+        "x": 370,
         "y": 160,
         "wires": [
             [
@@ -68,17 +68,17 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
-        "y": 160,
+        "x": 1020,
+        "y": 220,
         "wires": []
     },
     {
         "id": "20bb68e99eb09adc",
         "type": "comment",
         "z": "1867aaf5a1abce9e",
-        "name": "エアコンの電源状態取得",
+        "name": "エアコンの状態取得",
         "info": "",
-        "x": 130,
+        "x": 110,
         "y": 160,
         "wires": []
     },
@@ -86,7 +86,7 @@
         "id": "457d7738af6e7c15",
         "type": "inject",
         "z": "1867aaf5a1abce9e",
-        "name": "",
+        "name": "電気錠の施錠状態取得",
         "props": [
             {
                 "p": "payload"
@@ -99,7 +99,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 380,
+        "x": 360,
         "y": 220,
         "wires": [
             [
@@ -135,9 +135,9 @@
         "id": "88f845693da09e06",
         "type": "comment",
         "z": "1867aaf5a1abce9e",
-        "name": "電気錠の施錠状態取得",
+        "name": "電気錠の状態取得",
         "info": "",
-        "x": 120,
+        "x": 110,
         "y": 220,
         "wires": []
     },
@@ -145,7 +145,7 @@
         "id": "9fdd6028135868e4",
         "type": "inject",
         "z": "1867aaf5a1abce9e",
-        "name": "",
+        "name": "シャッターの開閉状態取得",
         "props": [
             {
                 "p": "payload"
@@ -158,7 +158,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 380,
+        "x": 370,
         "y": 280,
         "wires": [
             [
@@ -194,9 +194,9 @@
         "id": "a62655010104b5fe",
         "type": "comment",
         "z": "1867aaf5a1abce9e",
-        "name": "シャッターの開閉状態取得",
+        "name": "シャッターの状態取得",
         "info": "",
-        "x": 130,
+        "x": 120,
         "y": 280,
         "wires": []
     },
@@ -224,7 +224,7 @@
         "id": "9570cb6305da4b3d",
         "type": "inject",
         "z": "1867aaf5a1abce9e",
-        "name": "",
+        "name": "エアコンの電源を入れる",
         "props": [
             {
                 "p": "payload"
@@ -237,7 +237,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 380,
+        "x": 370,
         "y": 380,
         "wires": [
             [
@@ -262,7 +262,7 @@
         "senderr": false,
         "headers": [],
         "x": 1000,
-        "y": 380,
+        "y": 400,
         "wires": [
             [
                 "91f1bf68495c942a"
@@ -281,17 +281,17 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1240,
-        "y": 380,
+        "x": 1280,
+        "y": 500,
         "wires": []
     },
     {
         "id": "c042dafdd797079c",
         "type": "comment",
         "z": "1867aaf5a1abce9e",
-        "name": "エアコンの電源On/Off操作",
+        "name": "エアコンの操作",
         "info": "",
-        "x": 130,
+        "x": 100,
         "y": 380,
         "wires": []
     },
@@ -299,7 +299,7 @@
         "id": "c8a2f4b7e51d20b7",
         "type": "inject",
         "z": "1867aaf5a1abce9e",
-        "name": "",
+        "name": "電気錠を施錠する",
         "props": [
             {
                 "p": "payload"
@@ -312,7 +312,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 380,
+        "x": 350,
         "y": 480,
         "wires": [
             [
@@ -337,7 +337,7 @@
         "senderr": false,
         "headers": [],
         "x": 970,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "91f1bf68495c942a"
@@ -348,9 +348,9 @@
         "id": "91e7aafe9ed24826",
         "type": "comment",
         "z": "1867aaf5a1abce9e",
-        "name": "電気錠の施錠/解錠操作",
+        "name": "電気錠の操作",
         "info": "",
-        "x": 120,
+        "x": 90,
         "y": 480,
         "wires": []
     },
@@ -358,7 +358,7 @@
         "id": "dfa7927fcadf0efe",
         "type": "inject",
         "z": "1867aaf5a1abce9e",
-        "name": "",
+        "name": "シャッターを開く",
         "props": [
             {
                 "p": "payload"
@@ -371,7 +371,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 380,
+        "x": 350,
         "y": 580,
         "wires": [
             [
@@ -396,7 +396,7 @@
         "senderr": false,
         "headers": [],
         "x": 990,
-        "y": 580,
+        "y": 600,
         "wires": [
             [
                 "91f1bf68495c942a"
@@ -407,7 +407,7 @@
         "id": "cecb12789f7a6b69",
         "type": "comment",
         "z": "1867aaf5a1abce9e",
-        "name": "シャッタの開閉操作",
+        "name": "シャッターの操作",
         "info": "",
         "x": 110,
         "y": 580,
@@ -471,7 +471,7 @@
         "id": "6738bf56a5304cf6",
         "type": "change",
         "z": "1867aaf5a1abce9e",
-        "name": "シャッタ：openControl:open",
+        "name": "シャッター：openControl:open",
         "rules": [
             {
                 "t": "set",
@@ -486,7 +486,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
+        "x": 650,
         "y": 580,
         "wires": [
             [
@@ -498,7 +498,7 @@
         "id": "f4a007d03812fc5f",
         "type": "inject",
         "z": "1867aaf5a1abce9e",
-        "name": "",
+        "name": "シャッターを閉じる",
         "props": [
             {
                 "p": "payload"
@@ -511,7 +511,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 380,
+        "x": 350,
         "y": 620,
         "wires": [
             [
@@ -523,7 +523,7 @@
         "id": "da89309f31f48c0d",
         "type": "change",
         "z": "1867aaf5a1abce9e",
-        "name": "シャッタ：openControl : close",
+        "name": "シャッター：openControl : close",
         "rules": [
             {
                 "t": "set",
@@ -538,7 +538,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 650,
+        "x": 660,
         "y": 620,
         "wires": [
             [
@@ -604,7 +604,7 @@
         "id": "e04bf3e7e28af7f8",
         "type": "inject",
         "z": "1867aaf5a1abce9e",
-        "name": "",
+        "name": "電気錠を解錠する",
         "props": [
             {
                 "p": "payload"
@@ -617,7 +617,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 380,
+        "x": 350,
         "y": 520,
         "wires": [
             [
@@ -629,7 +629,7 @@
         "id": "d20a16df15cc2862",
         "type": "inject",
         "z": "1867aaf5a1abce9e",
-        "name": "",
+        "name": "エアコンの電源を切る",
         "props": [
             {
                 "p": "payload"
@@ -642,7 +642,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 380,
+        "x": 360,
         "y": 420,
         "wires": [
             [
