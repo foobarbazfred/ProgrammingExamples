@@ -27,5 +27,7 @@ SmartHomeSimulatorを使ってプログラミング演習を行うためのサ�
 
 上記はNode-REDによるサンプルですが、Pythonを使ってSmartHomeSimulatorを制御することもできます。
 
-code-03-01以降は、人感センサが搭載されたRPi用の拡張基板が必要です。また、RPiのGPIOを制御できる拡張モジュールnode-red-node-pi-gpioが必要です。
-https://github.com/node-red/node-red-nodes/tree/master/hardware/PiGpio
+- code-03-01以降は、人感センサが搭載されたRPi用の拡張基板が必要です。
+  - Indoor Corgy製　RPZ-PIRS (Raspberry Pi用 人感/明るさセンサー/赤外線 拡張基板)　https://www.indoorcorgielec.com/products/rpz-pirs/
+- RPiのGPIOを制御できる拡張モジュールnode-red-node-pi-gpioが必要です。
+  - https://github.com/node-red/node-red-nodes/tree/master/hardware/PiGpio
