@@ -16,7 +16,6 @@ SmartHomeSimulatorを使ってプログラミング演習を行うためのサ�
   - MQTTを使って遠隔から自宅のシャッタを制御する
 - code-03-01
   - Node-RED からRaspberry PiのGPIOを制御するサンプルコード
-  - 注：code-03-01以降のプログラム実行にはセンサが搭載されたRPi用の拡張基板が必要です
 - code-03-02
   - 手をかざすとLEDが点灯するプログラム
 - code-03-03
@@ -27,3 +26,6 @@ SmartHomeSimulatorを使ってプログラミング演習を行うためのサ�
   - 一度手をかざすとシャッター開、もう一度手をかざすとシャッター閉動作
 
 上記はNode-REDによるサンプルですが、Pythonを使ってSmartHomeSimulatorを制御することもできます。
+
+code-03-01以降は、人感センサが搭載されたRPi用の拡張基板が必要です。また、RPiのGPIOを制御できる拡張モジュールnode-red-node-pi-gpioが必要です。
+https://github.com/node-red/node-red-nodes/tree/master/hardware/PiGpio
