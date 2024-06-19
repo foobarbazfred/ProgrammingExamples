@@ -9,7 +9,7 @@
 - 追加ノードモジュール：node-red-node-pi-gpio
   - module version: 2.0.6を使用しています。
     お使いのnode-red-node-pi-gpioモジュールが古いバージョンの場合、最新に上げないとピン番号が正しく設定されない可能性があります
-    (Pin番号か、機能名(BCM)かの仕様が変わったように思える）
+    (Pinの内部管理方法が、Pin番号か、機能名(BCM)かの違いがあるように思えます）
 - source code: flows-03-01.json
 
 ![image](https://github.com/foobarbazfred/ProgrammingExamples/blob/main/code-03-01/code-03-01.png)
