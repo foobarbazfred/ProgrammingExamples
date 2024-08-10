@@ -25,7 +25,7 @@ SmartHomeSimulatorを使ってプログラミング演習を行うためのサ�
 - code-03-05
   - 一度手をかざすとシャッター開、もう一度手をかざすとシャッター閉動作
 
-上記はNode-REDによるサンプルですが、Pythonを使ってSmartHomeSimulatorを制御することもできます。
+上記はRaspberryPy上で動作するNode-REDを使ってSmartHomeSimulatorを制御するサンプルコードです。RaspberryPi上でPythonを走らせて同様に制御することもできます。
 
 - code-03-01以降は、人感センサが搭載されたRPi用の拡張基板が必要です。
   - Indoor Corgy製　RPZ-PIRS (Raspberry Pi用 人感/明るさセンサー/赤外線 拡張基板)　https://www.indoorcorgielec.com/products/rpz-pirs/
