@@ -1,117 +1,11 @@
 [
     {
-        "id": "d12cc775.ff2b58",
-        "type": "tab",
-        "label": "人を検知して点灯、自動消灯",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "5effbaaf.a0f624",
-        "type": "rpi-gpio in",
-        "z": "d12cc775.ff2b58",
-        "name": "人感センサ",
-        "pin": "27",
-        "intype": "down",
-        "debounce": "25",
-        "read": false,
-        "bcm": true,
-        "x": 140,
-        "y": 120,
-        "wires": [
-            [
-                "a2b64076.1d7bf"
-            ]
-        ]
-    },
-    {
-        "id": "e5a8d2d5.12291",
-        "type": "debug",
-        "z": "d12cc775.ff2b58",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 930,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "7dfec78d.d5e5f8",
-        "type": "rpi-gpio out",
-        "z": "d12cc775.ff2b58",
-        "name": "LED(red)",
-        "pin": "18",
-        "set": true,
-        "level": "0",
-        "freq": "",
-        "out": "out",
-        "bcm": true,
-        "x": 920,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "a2b64076.1d7bf",
-        "type": "switch",
-        "z": "d12cc775.ff2b58",
-        "name": "人を検知した時のみ流す",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 350,
-        "y": 120,
-        "wires": [
-            [
-                "d5b05616.1bcc68"
-            ]
-        ]
-    },
-    {
-        "id": "d5b05616.1bcc68",
-        "type": "delay",
-        "z": "d12cc775.ff2b58",
-        "name": "流量制限(1msg/3sec)",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "3",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "x": 600,
-        "y": 120,
-        "wires": [
-            [
-                "7dfec78d.d5e5f8",
-                "e5a8d2d5.12291",
-                "4c57aa56.56d664"
-            ]
-        ]
-    },
-    {
         "id": "4c57aa56.56d664",
         "type": "delay",
         "z": "d12cc775.ff2b58",
-        "name": "3秒待つ",
+        "name": "5秒待つ",
         "pauseType": "delay",
-        "timeout": "3",
+        "timeout": "5",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "3",
@@ -127,53 +21,5 @@
                 "e68a2dc7.b99fe"
             ]
         ]
-    },
-    {
-        "id": "e68a2dc7.b99fe",
-        "type": "change",
-        "z": "d12cc775.ff2b58",
-        "name": "電源OFF",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "0",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 740,
-        "y": 200,
-        "wires": [
-            [
-                "7dfec78d.d5e5f8",
-                "e5a8d2d5.12291"
-            ]
-        ]
-    },
-    {
-        "id": "f3897db8.00667",
-        "type": "comment",
-        "z": "d12cc775.ff2b58",
-        "name": "code-03-02-kai",
-        "info": "",
-        "x": 140,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "fbf3717a.88109",
-        "type": "comment",
-        "z": "d12cc775.ff2b58",
-        "name": "手をかざすとLEDが点灯、一定時間後消灯(改良版)",
-        "info": "",
-        "x": 450,
-        "y": 40,
-        "wires": []
     }
 ]
