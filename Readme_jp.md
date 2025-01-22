@@ -4,25 +4,25 @@ SmartHomeSimulatorを使ってプログラミング演習を行うためのサ�
 
 - [code-02-01](code-02-01)
   - Node-REDによるシンプルなサンプルコード (Hello world!)
-- code-02-02
+- [code-02-02](code-02-02)
   - ECHONET Lite Web API を使うサンプルコード
-- code-02-03
+- [code-02-03](code-02-03)
   - 電気錠が解錠されるとシャッターが開くサンプル
-- code-02-04
+- [code-02-04](code-02-04)
   - 電気錠が解錠されるとシャッターが開くサンプル(一定時間経過後、電気錠が施錠されていない場合、自動施錠する)
-- code-02-05
+- [code-02-05](code-02-05)
   - MQTTを使って遠隔から自宅のエアコンを制御する
-- code-02-06
+- [code-02-06](code-02-06)
   - MQTTを使って遠隔から自宅のシャッタを制御する
-- code-03-01
+- [code-03-01](code-03-01)
   - Node-RED からRaspberry PiのGPIOを制御するサンプルコード
-- code-03-02
+- [code-03-02](code-03-02)
   - 手をかざすとLEDが点灯するプログラム
-- code-03-03
+- [code-03-03](code-03-03)
   - 手をかざすとシャッターが開くプログラム
-- code-03-04
+- [code-03-04](code-03-04)
   - 一度手をかざすとLED On、もう一度手をかざすとLED Off
-- code-03-05
+- [code-03-05](code-03-05)
   - 一度手をかざすとシャッター開、もう一度手をかざすとシャッター閉動作
 
 上記はRaspberryPy上で動作するNode-REDを使ってSmartHomeSimulatorを制御するサンプルコードです。RaspberryPi上でPythonを走らせて同様に制御することもできます。
