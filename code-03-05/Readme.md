@@ -6,7 +6,7 @@
 - source code: flows-03-05.json
 - 備考：前回行った機器制御（開動作、閉動作）を記憶するため、flowコンテキスト（on_off_flag）を設定、利用しています
 
-![image](https://github.com/foobarbazfred/ProgrammingExamples/blob/main/code-03-05/code-03-05.png)
+![image](code-03-05.png)
 
 # code-03-05-kai
 - 機能等：code-03-05と基本的に同じ
@@ -15,4 +15,12 @@
   - code-03-05-kai: 操作要求受理を表す（手をかざして検知したらLED点灯、一定時間経過後消灯）
 - source code: flows-03-05-kai.json
 
-![image](https://github.com/foobarbazfred/ProgrammingExamples/blob/main/code-03-05/code-03-05-kai.png)
+![image](code-03-05-kai.png)
+
+# code-03-05-kai-2
+- 機能等：code-03-05と基本的に同じ
+- 変更点：LEDの点灯、消灯、音声発話機能を追加
+  - code-03-05-kai-2: 操作要求受理を表す（手をかざして検知したら音声発話（開きます／閉じます））
+- source code: not uploaded
+ 
+![image](code-03-05-kai-2.png)
